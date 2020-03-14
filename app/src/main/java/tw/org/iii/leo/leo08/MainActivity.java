@@ -11,10 +11,17 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     private EditText input;
+    private MainApp mainApp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //打回原形才會有我的成員a跟b
+        mainApp = (MainApp)getApplication();
+        Log.v("leo","a = " + mainApp.a);
+        Log.v("leo","b = " + mainApp.b);
+
         input = findViewById(R.id.input);
     }
 
@@ -50,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         Log.v("leo","onRestart()");
+        Log.v("leo","a = " + mainApp.a);
+        Log.v("leo","b = " + mainApp.b);
         super.onRestart();
 
     }
